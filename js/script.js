@@ -1,13 +1,13 @@
-const phoneData = async (searchText) => {
+const phoneData = async (searchText, isShowAll) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`);
     const data = await res.json();
     const phones = data.data
     console.log(phones);
-    displayPhones(phones);
+    displayPhones(phones, isShowAll);
 
 }
 
-const displayPhones = phones => {
+const displayPhones = (phones, isShowAll) => {
     //step-one 
     const phoneContainer = document.getElementById('phone-container');
 
@@ -17,12 +17,13 @@ const displayPhones = phones => {
     // display show all button if there are more than 12 phones
 
     const showAllContainer = document.getElementById('show-all-container');
-    if(phones.length>12){
+    if (phones.length > 12) {
         showAllContainer.classList.remove('hidden');
     }
-    else{
+    else {
         showAllContainer.classList.add('hidden');
     }
+    console.log('is show all', isShowAll);
 
 
     //display only first 10 phones
@@ -30,11 +31,8 @@ const displayPhones = phones => {
 
 
 
-
-
-
     phones.forEach(phone => {
-        console.log(phone)
+        // console.log(phone)
 
         //step-two create a div
         const phoneCard = document.createElement('div');
@@ -62,21 +60,28 @@ const displayPhones = phones => {
 
 }
 
-const handleSearchButton = () => {
+const handleSearchButton = (isShowAll) => {
     loadingSpiner(true)
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
     console.log(searchText);
-    phoneData(searchText);
+    phoneData(searchText, isShowAll);
 }
 
-const loadingSpiner = (isLoading)=>{
-    const loadingContainer= document.getElementById('spiner-container');
-    if(isLoading){
+const loadingSpiner = (isLoading) => {
+    const loadingContainer = document.getElementById('spiner-container');
+    if (isLoading) {
         loadingContainer.classList.remove('hidden');
     }
-    else{
+    else {
         loadingContainer.classList.add('hidden');
     }
+}
+
+
+//handle show all button
+
+const handleShowAll = () =>{
+    handleSearchButton(true);
 }
 // phoneData()
