@@ -35,4 +35,8 @@ const displayPhones = phones => {
 
 }
 
+const handleSearchButton = () =>{
+    console.log('clicked');
+}
+
 phoneData()
