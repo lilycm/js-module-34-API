@@ -17,14 +17,14 @@ const displayPhones = phones => {
         const phoneCard = document.createElement('div');
 
         //step-three set innerHTML
-        phoneCard.classList = `card w-96 bg-base-100 shadow-xl`;
+        phoneCard.classList = `card bg-base-100 shadow-xl`;
         phoneCard.innerHTML = `
-            <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" />
+            <figure><img src="${phone.image}" alt="Phones" />
             </figure>
             <div class="card-body">
-                <h2 class="card-title">Shoes!</h2>
+                <h2 class="card-title">${phone.phone_name}</h2>
                 <p>If a dog chews shoes whose shoes does he choose?</p>
-                <div class="card-actions justify-end">
+                <div class="card-actions justify-center">
                     <button class="btn btn-primary">Buy Now</button>
                 </div>
             </div>
