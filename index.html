@@ -9,6 +9,12 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <style>
+        .all-phone{
+            text-align: center;
+            margin-top: 45px;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,6 +32,12 @@
         <section>
             <div id="phone-container" class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
 
+            </div>
+
+
+            <!-- show all button -->
+            <div id="show-all-container" class="hidden all-phone">
+                <button class=" bg-pink-300 px-8 py-3 rounded-md text-lg font-bold text-white">See All</button>
             </div>
         </section>
     </main>
