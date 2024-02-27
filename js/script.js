@@ -56,13 +56,27 @@ const displayPhones = phones => {
         phoneContainer.appendChild(phoneCard);
     });
 
+    //hide loading spiner
+
+    loadingSpiner(false);
+
 }
 
 const handleSearchButton = () => {
+    loadingSpiner(true)
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
     console.log(searchText);
     phoneData(searchText);
 }
 
+const loadingSpiner = (isLoading)=>{
+    const loadingContainer= document.getElementById('spiner-container');
+    if(isLoading){
+        loadingContainer.classList.remove('hidden');
+    }
+    else{
+        loadingContainer.classList.add('hidden');
+    }
+}
 // phoneData()
