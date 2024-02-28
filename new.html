@@ -21,8 +21,8 @@
 
         <!-- phones section start -->
         <section>
-            <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
-            <button class="btn bg-pink-400 text-white font-semibold">search</button>
+            <input id="search-field" type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+            <button onclick="handleSearchButton()" class="btn bg-pink-400 text-white font-semibold">search</button>
         </section>
         <!-- phones section end -->
 
@@ -30,6 +30,10 @@
         <!-- phone container start -->
         <section class="my-12">
             <div id="show-phone-container" class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-6">
+            </div>
+
+            <div id="show-all-phones" class="text-center mt-12 hidden">
+                <button class="btn bg-pink-400 text-white font-bold">Show all</button>
             </div>
         </section>
         <!-- phone container end -->
