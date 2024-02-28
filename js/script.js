@@ -2,7 +2,7 @@ const phoneData = async (searchText = '13', isShowAll) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`);
     const data = await res.json();
     const phones = data.data
-    console.log(phones);
+    // console.log(phones);
     displayPhones(phones, isShowAll);
 
 }
@@ -23,7 +23,7 @@ const displayPhones = (phones, isShowAll) => {
     else {
         showAllContainer.classList.add('hidden');
     }
-    console.log('is show all', isShowAll);
+    // console.log('is show all', isShowAll);
 
 
     //display only first 10 phones
@@ -73,6 +73,21 @@ const handleShowDetail = async (id) => {
 
 const phoneDetails = (phone) => {
     console.log(phone);
+    const phoneName = document.getElementById('show-detail-phone-name');
+    phoneName.innerText = phone.name;
+
+    const showDetailContainer = document.getElementById('show-detail-container');
+    showDetailContainer.innerHTML = `
+    <img src="${phone.image}" alt="Phones" />
+    <p class="text-base font-normal"><span class="font-bold text-lg text-[#403F3F]">Storage </span>${phone.mainFeatures.storage}<p>
+    <p class="text-base font-normal"><span class="font-bold text-lg text-[#403F3F]">DisplaySize </span>${phone.mainFeatures.displaySize}<p>
+    <p class="text-base font-normal"><span class="font-bold text-lg text-[#403F3F]">ChipSet </span>${phone.mainFeatures.chipSet}<p>
+    <p class="text-base font-normal"><span class="font-bold text-lg text-[#403F3F]">Memory </span>${phone.mainFeatures.memory}<p>
+    <p class="text-base font-normal"><span class="font-bold text-lg text-[#403F3F]">Slug </span>${phone.slug}<p>
+    <p class="text-base font-normal"><span class="font-bold text-lg text-[#403F3F]">release Date </span>${phone.releaseDate}<p>
+    `
+
+
     // show the modal
     show_details_modal.showModal();
 }
