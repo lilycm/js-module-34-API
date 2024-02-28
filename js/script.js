@@ -46,7 +46,7 @@ const displayPhones = (phones, isShowAll) => {
                 <h2 class="card-title">${phone.phone_name}</h2>
                 <p>If a dog chews shoes whose shoes does he choose?</p>
                 <div class="card-actions justify-center">
-                    <button onclick="handleShowDetail('${phone.slug}')" class="btn btn-primary">Show Details</button>
+                    <button onclick="handleShowDetail('${phone.slug}')" class="btn btn-primary bg-red-400 border-red-400">Show Details</button>
                 </div>
             </div>
     `
@@ -79,12 +79,14 @@ const phoneDetails = (phone) => {
     const showDetailContainer = document.getElementById('show-detail-container');
     showDetailContainer.innerHTML = `
     <img src="${phone.image}" alt="Phones" />
-    <p class="text-base font-normal"><span class="font-bold text-lg text-[#403F3F]">Storage </span>${phone.mainFeatures.storage}<p>
-    <p class="text-base font-normal"><span class="font-bold text-lg text-[#403F3F]">DisplaySize </span>${phone.mainFeatures.displaySize}<p>
-    <p class="text-base font-normal"><span class="font-bold text-lg text-[#403F3F]">ChipSet </span>${phone.mainFeatures.chipSet}<p>
-    <p class="text-base font-normal"><span class="font-bold text-lg text-[#403F3F]">Memory </span>${phone.mainFeatures.memory}<p>
-    <p class="text-base font-normal"><span class="font-bold text-lg text-[#403F3F]">Slug </span>${phone.slug}<p>
-    <p class="text-base font-normal"><span class="font-bold text-lg text-[#403F3F]">release Date </span>${phone.releaseDate}<p>
+    <p class="text-base font-normal"><span class="font-bold text-lg text-[#403F3F]">Storage </span>${phone?.mainFeatures?.storage}<p>
+    <p class="text-base font-normal"><span class="font-bold text-lg text-[#403F3F]">DisplaySize </span>${phone?.mainFeatures?.displaySize}<p>
+    <p class="text-base font-normal"><span class="font-bold text-lg text-[#403F3F]">ChipSet </span>${phone?.mainFeatures?.chipSet}<p>
+    <p class="text-base font-normal"><span class="font-bold text-lg text-[#403F3F]">Memory </span>${phone?.mainFeatures?.memory}<p>
+    <p class="text-base font-normal"><span class="font-bold text-lg text-[#403F3F]">Slug </span>${phone?.slug}<p>
+    <p class="text-base font-normal"><span class="font-bold text-lg text-[#403F3F]">release Date </span>${phone?.releaseDate || 'No Release Date'}<p>
+    <p class="text-base font-normal"><span class="font-bold text-lg text-[#403F3F]">Brand </span>${phone?.brand}<p>
+    <p class="text-base font-normal"><span class="font-bold text-lg text-[#403F3F]">GPS </span>${phone?.others?.GPS  || 'No GPS Found'}<p>
     `
 
 
@@ -117,3 +119,6 @@ const handleShowAll = () => {
     handleSearchButton(true);
 }
 phoneData();
+
+// ternary oparator
+/* <p class="text-base font-normal"><span class="font-bold text-lg text-[#403F3F]">GPS </span>${phone?.others?.GPS ? phone.others.GPS : 'No GPS Found'}<p></p> */
